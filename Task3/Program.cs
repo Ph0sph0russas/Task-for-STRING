@@ -2,7 +2,7 @@
 {
     public class Logic
     {
-        public static string clearSameSymbols(string word)
+        public static string clearSameSymbolsFromWord(string word)
         {
             for (int i = 0; i < word.Length; i++)
             {
@@ -52,7 +52,7 @@
             string firstWord = Console.ReadLine();
             string secondWord = Console.ReadLine();
 
-            string firstClearedWord = Logic.clearSameSymbols(firstWord);
+            string firstClearedWord = Logic.clearSameSymbolsFromWord(firstWord);
             string result = Logic.checkSameElements(firstClearedWord, secondWord);
             
             Console.WriteLine(result);
