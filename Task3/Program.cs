@@ -1,28 +1,30 @@
 ﻿namespace Task3
 {
-    internal class Program
+    public class Logic
     {
-        static void Main(string[] args)
+        public static string clearSameSymbols(string word)
         {
-            string firstWord = Console.ReadLine();
-            string secondWord = Console.ReadLine();
-            for (int i = 0; i<firstWord.Length;i++)
+            for (int i = 0; i < word.Length; i++)
             {
-                for (int j = i+1;j<firstWord.Length;j++)
+                for (int j = i + 1; j < word.Length; j++)
                 {
-                    if (char.ToLower(firstWord[i]) == char.ToLower(firstWord[j]))
+                    if (char.ToLower(word[i]) == char.ToLower(word[j]))
                     {
-                        firstWord=firstWord.Remove(j, 1);
+                        word = word.Remove(j, 1);
                         j--;
                     }
                 }
             }
+            return word;
+        }
 
+        public static string checkSameElements(string firstWord, string secondWord)
+        {
             string result = "";
             bool detected = false;
-            for (int i = 0;i<firstWord.Length;i++)
+            for (int i = 0; i < firstWord.Length; i++)
             {
-                for (int j =0;j<secondWord.Length;j++)
+                for (int j = 0; j < secondWord.Length; j++)
                 {
                     if (char.ToLower(firstWord[i]) == char.ToLower(secondWord[j]))
                     {
@@ -35,11 +37,24 @@
                     result = result + "да ";
                     detected = false;
                 }
-                else 
+                else
                 {
                     result = result + "нет ";
                 }
             }
+            return result;
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string firstWord = Console.ReadLine();
+            string secondWord = Console.ReadLine();
+
+            string firstClearedWord = Logic.clearSameSymbols(firstWord);
+            string result = Logic.checkSameElements(firstClearedWord, secondWord);
+            
             Console.WriteLine(result);
         }
     }
