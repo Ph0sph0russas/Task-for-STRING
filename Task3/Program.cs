@@ -17,6 +17,8 @@
                     }
                 }
             }
+
+            string result = "";
             bool detected = false;
             for (int i = 0;i<firstWord.Length;i++)
             {
@@ -30,15 +32,15 @@
                 }
                 if (detected)
                 {
-                    Console.Write("да ");
+                    result = result + "да ";
                     detected = false;
                 }
                 else 
-                { 
-                    Console.Write("нет "); 
+                {
+                    result = result + "нет ";
                 }
             }
-
+            Console.WriteLine(result);
         }
     }
 }
