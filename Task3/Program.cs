@@ -20,13 +20,14 @@
 
         public static string checkSameElements(string firstWord, string secondWord)
         {
+            string clearedFirstWord = clearSameSymbolsFromWord(firstWord);
             string result = "";
             bool detected = false;
-            for (int i = 0; i < firstWord.Length; i++)
+            for (int i = 0; i < clearedFirstWord.Length; i++)
             {
                 for (int j = 0; j < secondWord.Length; j++)
                 {
-                    if (char.ToLower(firstWord[i]) == char.ToLower(secondWord[j]))
+                    if (char.ToLower(clearedFirstWord[i]) == char.ToLower(secondWord[j]))
                     {
                         detected = true;
                         break;
@@ -42,6 +43,7 @@
                     result = result + "нет ";
                 }
             }
+            result = result.Remove(result.Length-1);
             return result;
         }
     }
@@ -52,8 +54,7 @@
             string firstWord = Console.ReadLine();
             string secondWord = Console.ReadLine();
 
-            string firstClearedWord = Logic.clearSameSymbolsFromWord(firstWord);
-            string result = Logic.checkSameElements(firstClearedWord, secondWord);
+            string result = Logic.checkSameElements(firstWord, secondWord);
             
             Console.WriteLine(result);
         }

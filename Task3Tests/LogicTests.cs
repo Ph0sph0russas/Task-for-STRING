@@ -61,7 +61,7 @@ namespace Task3.Tests
         {
             string firstWord = "Процес";
             string secondWord = "Информация";
-            string expectedResult = "нет да да да нет нет ";
+            string expectedResult = "нет да да да нет нет";
             string actualResult = Logic.checkSameElements(firstWord, secondWord);
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -71,7 +71,7 @@ namespace Task3.Tests
         {
             string firstWord = "Процес";
             string secondWord = "Процес";
-            string expectedResult = "да да да да да да ";
+            string expectedResult = "да да да да да да";
             string actualResult=Logic.checkSameElements(firstWord, secondWord);
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -81,7 +81,7 @@ namespace Task3.Tests
         {
             string firstWord = "вид";
             string secondWord = "Процес";
-            string expectedResult = "нет нет нет ";
+            string expectedResult = "нет нет нет";
             string actualResult = Logic.checkSameElements(firstWord, secondWord);
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -91,7 +91,17 @@ namespace Task3.Tests
         {
             string firstWord = "еСТь";
             string secondWord = "нЕт";
-            string expectedResult = "да нет да нет ";
+            string expectedResult = "да нет да нет";
+            string actualResult = Logic.checkSameElements(firstWord, secondWord);
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+
+        [TestMethod()]
+        public void checkSameElementsUnclearedFirstWord()
+        {
+            string firstWord = "еееееееСССТтььь";
+            string secondWord = "нЕт";
+            string expectedResult = "да нет да нет";
             string actualResult = Logic.checkSameElements(firstWord, secondWord);
             Assert.AreEqual(expectedResult, actualResult);
         }
